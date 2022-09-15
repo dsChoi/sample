@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.setin.sample.mapper.UserMapper">
+    <select id="selectUsers" resultType="com.setin.sample.dto.UserDto">
+        SELECT id, name, hp_no from user2
+    </select>
+    <select id="selectUser" resultType="com.setin.sample.dto.UserDto">
+        SELECT id, name, hp_no from user2 where id = #{id}
+    </select>
+
+    <insert id="insertUser" parameterType="com.setin.sample.dto.UserDto">
+        INSERT INTO user2 VALUES(#{id}, #{name}, #{hpNo});
+    </insert>
+
+    <delete id="deleteUser">
+        delete from user2 where id = #{id}
+    </delete>
+</mapper>
